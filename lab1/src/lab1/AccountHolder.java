@@ -9,9 +9,9 @@ public class AccountHolder {
 		Scanner sc = null;
 		
 		
-		public AccountHolder(double bal) {
+		public AccountHolder(double balance) {
 			
-			this.balance = (bal >= 0) ? bal : 0;
+			this.balance = (balance >= 0) ? balance : 0;
 			sc = new Scanner(System.in);
 		}
 
