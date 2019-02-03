@@ -31,8 +31,7 @@ public class AccountHolderTest {
 		
 		//calling the withdraw method with the variable withdrawlAmt
 		//obj.withdraw(withdrawlAmt);
-		
-		
+				
 		//asking the user to put in a deposit amount
 		System.out.println("Please enter the amount you would like to deposit:");
 		depositAmt = sc.nextDouble();

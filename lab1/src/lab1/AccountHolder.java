@@ -4,17 +4,18 @@ import java.util.Scanner;
 
 public class AccountHolder {
 	
+		// creating the annual interest rate variable with type of double and making it static as it will not change
 		static double annualIntRate;
+		
+		// creating the variable balance to store the the users balance
 		double balance;
-		Scanner sc = null;
-		
-		
+							
+		// creating the Account holder method that takes in the double type variable balance
+			// and then checks to see if it is an appropriate number by being over than 0
 		public AccountHolder(double balance) {
 			
 			this.balance = (balance >= 0) ? balance : 0;
-			sc = new Scanner(System.in);
 		}
-
 
 		/**
 		 * @return the annualIntRate
@@ -44,31 +45,34 @@ public class AccountHolder {
 			this.balance = balance;
 		}
 		
-		
-		public void withdraw(double withdrawlAmt) {
 			
-			if(this.balance - withdrawlAmt < 0);
+		
+		// the withdraw method is to hold a variable of double type and will check if the balance - the withdraw amount is less than 0 
+			// then perform the transaction with a $50 penalty
+				
+		public void withdraw(double withdrawlAmt) {
+				if(this.balance - withdrawlAmt < 0);
 			//penalize
+				System.out.println("You have been penalized $50 for overdraft");
 				this.balance = balance - withdrawlAmt - 50;
 				//this.balance -= bal;
-			
 		}
-				
-	public void deposit(double depositAmt) {
+		
+		
+		//the deposit method here takes in a variable of type double called depositAmt and then it increases the balance 
+			//with the depositAmt it takes in and then ultimately sets the balance by using this.balanace
+		
+		public void deposit(double depositAmt) {
 			
 			this.balance = balance + depositAmt;
-			
 		}		
 			
+		// the modifyIntRate method is here to set the balance equal to the balance multiplied by the set annual rate 
+			//and then divided by 12 for each month in the year.
+		
 		public void modifyIntRate() {
-			balance = balance * annualIntRate/12;
-				
+			this.balance = balance * annualIntRate/12;				
 		}
 				
-		public void monthlyIntRate(double nRate) {
-			annualIntRate = nRate;
-			
-		}
-
-
+		
 }
