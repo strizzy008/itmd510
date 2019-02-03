@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class AccountHolder {
 	
 		// creating the annual interest rate variable with type of double and making it static as it will not change
-		static double annualIntRate;
+		private static double annualIntRate;
 		
 		// creating the variable balance to store the the users balance
-		double balance;
+		private double balance;
 						
 		Scanner sc = new Scanner(System.in);
 		
@@ -18,14 +18,15 @@ public class AccountHolder {
 		// also asks the user to enter in their initial balance
 		public AccountHolder(double balance) {
 			
-			
-			this.balance = (balance >= 0) ? balance : 0;
+			if (balance < 0.0)
+				throw new IllegalArgumentException("balance must be non-negative");
+				this.balance = balance;
 		}
 
 		/**
 		 * @return the annualIntRate
 		 */
-		public double getAnnualIntRate() {
+		public static double getAnnualIntRate() {
 			return annualIntRate;
 		}
 
@@ -40,6 +41,13 @@ public class AccountHolder {
 		 * @return the balance
 		 */
 		public double getBalance() {
+			
+			System.out.println("Please Enter your balance:");
+			
+			balance = sc.nextDouble();
+			while (balance < 0) {
+				 System.out.println("You have entered a negative amount. You must enter a positive balance.");
+				 getBalance();}
 			return balance;
 		}
 
@@ -70,15 +78,31 @@ public class AccountHolder {
 		public void deposit(double depositAmt) {
 			
 			this.balance = balance + depositAmt;
+			
+			System.out.println("Your new balance is: " + balance);
+			
 					
 		}		
 			
 		// the modifyIntRate method is here to set the balance equal to the balance multiplied by the set annual rate 
 			//and then divided by 12 for each month in the year.
 		
-		public void modifyIntRate(double balance) {
-			this.balance = balance * annualIntRate/12;				
+		public void monthlyModifyIntRate(double bal) {
+			this.balance += (balance * annualIntRate / 12.0);				
 		}
 				
+		
+		public static void modifyMonthlyInterest(double annualIntRate){
+			
+			AccountHolder.annualIntRate = annualIntRate;
+			
+		}
+		
+		public String toString() {
+		
+			return String.format("$%.2f", balance);
+			
+		}
+		
 		
 }
