@@ -45,22 +45,30 @@ public class AccountHolder {
 		}
 		
 		
-		public void withdraw(double bal) {
+		public void withdraw(double withdrawlAmt) {
 			
-			if(this.balance -bal<0);
+			if(this.balance - withdrawlAmt < 0);
 			//penalize
-			this.balance -= bal;
+				this.balance = balance - withdrawlAmt - 50;
+				//this.balance -= bal;
 			
 		}
-		
+				
+	public void deposit(double depositAmt) {
+			
+			this.balance = balance + depositAmt;
+			
+		}		
+			
 		public void modifyIntRate() {
 			balance = balance * annualIntRate/12;
+				
 		}
-		
-		
-		public void modifyIntRate(double nRate) {
+				
+		public void monthlyIntRate(double nRate) {
 			annualIntRate = nRate;
 			
 		}
+
 
 }
