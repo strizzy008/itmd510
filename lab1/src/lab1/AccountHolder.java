@@ -9,10 +9,15 @@ public class AccountHolder {
 		
 		// creating the variable balance to store the the users balance
 		double balance;
-							
+						
+		Scanner sc = new Scanner(System.in);
+		
+		
 		// creating the Account holder method that takes in the double type variable balance
-			// and then checks to see if it is an appropriate number by being over than 0
+		// and then checks to see if it is an appropriate number by being over than 0
+		// also asks the user to enter in their initial balance
 		public AccountHolder(double balance) {
+			
 			
 			this.balance = (balance >= 0) ? balance : 0;
 		}
@@ -51,11 +56,11 @@ public class AccountHolder {
 			// then perform the transaction with a $50 penalty
 				
 		public void withdraw(double withdrawlAmt) {
-				if(this.balance - withdrawlAmt < 0);
-			//penalize
+				if(this.balance - withdrawlAmt < 0);{
+				//penalize
 				System.out.println("You have been penalized $50 for overdraft");
-				this.balance = balance - withdrawlAmt - 50;
-				//this.balance -= bal;
+				this.balance = balance - withdrawlAmt - 50;}
+		
 		}
 		
 		
@@ -65,12 +70,13 @@ public class AccountHolder {
 		public void deposit(double depositAmt) {
 			
 			this.balance = balance + depositAmt;
+					
 		}		
 			
 		// the modifyIntRate method is here to set the balance equal to the balance multiplied by the set annual rate 
 			//and then divided by 12 for each month in the year.
 		
-		public void modifyIntRate() {
+		public void modifyIntRate(double balance) {
 			this.balance = balance * annualIntRate/12;				
 		}
 				
