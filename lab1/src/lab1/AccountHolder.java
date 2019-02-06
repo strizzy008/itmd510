@@ -2,6 +2,13 @@ package lab1;
 
 import java.util.Scanner;
 
+
+/* Bryan Strawter
+2/05/2019
+AccountHolder.java
+lab1
+*/
+
 public class AccountHolder {
 	
 		// creating the annual interest rate variable with type of double and making it static as it will not change
@@ -11,7 +18,6 @@ public class AccountHolder {
 		private double balance;
 						
 		Scanner sc = new Scanner(System.in);
-		
 		
 		// creating the Account holder method that takes in the double type variable balance
 		// and then checks to see if it is an appropriate number by being over than 0
@@ -58,20 +64,26 @@ public class AccountHolder {
 			this.balance = balance;
 		}
 		
-			
-		
-		// the withdraw method is to hold a variable of double type and will check if the balance - the withdraw amount is less than 0 
+		    // the withdraw method is to hold a variable of double type and will check if the balance - the withdraw amount is less than 0 
 			// then perform the transaction with a $50 penalty
 				
 		public void withdraw(double withdrawlAmt) {
-				if(this.balance - withdrawlAmt < 0);{
+				if(balance - withdrawlAmt < 0)
+				{
 				//penalize
-				System.out.println("You have been penalized $50 for overdraft");
-				this.balance = balance - withdrawlAmt - 50;}
-		
+				System.out.println("\n" + "You have been penalized $50 for overdraft");
+				balance = balance - withdrawlAmt - 50;
+				System.out.println("\n" + "Your new balance is: " + balance);
+				
+				}
+				
+				else {
+				balance = balance - withdrawlAmt;
+				System.out.println("\n" + "Your new balance is: " + balance + "\n");
+				}
+					
 		}
-		
-		
+
 		//the deposit method here takes in a variable of type double called depositAmt and then it increases the balance 
 			//with the depositAmt it takes in and then ultimately sets the balance by using this.balanace
 		
@@ -80,8 +92,7 @@ public class AccountHolder {
 			this.balance = balance + depositAmt;
 			
 			System.out.println("Your new balance is: " + balance);
-			
-					
+				
 		}		
 			
 		// the modifyIntRate method is here to set the balance equal to the balance multiplied by the set annual rate 
@@ -90,7 +101,6 @@ public class AccountHolder {
 		public void monthlyModifyIntRate(double bal) {
 			this.balance += (balance * annualIntRate / 12.0);				
 		}
-				
 		
 		public static void modifyMonthlyInterest(double annualIntRate){
 			
@@ -103,6 +113,5 @@ public class AccountHolder {
 			return String.format("$%.2f", balance);
 			
 		}
-		
 		
 }
