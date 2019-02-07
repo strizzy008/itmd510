@@ -54,7 +54,11 @@ public class AccountHolder {
 			while (balance < 0) {
 				 System.out.println("You have entered a negative amount. You must enter a positive balance.");
 				 getBalance();}
+			
+			double bal = balance;
+			
 			return balance;
+			
 		}
 
 		/**
@@ -68,6 +72,9 @@ public class AccountHolder {
 			// then perform the transaction with a $50 penalty
 				
 		public void withdraw(double withdrawlAmt) {
+			
+
+				
 				if(balance - withdrawlAmt < 0)
 				{
 				//penalize
@@ -89,7 +96,7 @@ public class AccountHolder {
 		
 		public void deposit(double depositAmt) {
 			
-			this.balance = balance + depositAmt;
+			balance = balance + depositAmt;
 			
 			System.out.println("Your new balance is: " + balance);
 				
@@ -99,7 +106,7 @@ public class AccountHolder {
 			//and then divided by 12 for each month in the year.
 		
 		public void monthlyModifyIntRate(double bal) {
-			this.balance += (balance * annualIntRate / 12.0);				
+			balance += (this.balance * annualIntRate / 12.0);				
 		}
 		
 		public static void modifyMonthlyInterest(double annualIntRate){

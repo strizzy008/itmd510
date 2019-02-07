@@ -38,16 +38,28 @@ public class AccountHolderTest {
 		//asking the user to put in a deposit amount
 		System.out.println("Please enter the amount you would like to deposit:");
 		depositAmt = sc.nextDouble();
-			
-		System.out.println("\n" +"Your New Balance is: " + obj.toString());
 		
+		
+		while (depositAmt < 0) {
+			 System.out.println("You have entered a negative amount. You must enter a positive balance.");
+			 depositAmt = sc.nextDouble();
+			 };
+						
 		//calling the deposit method with the variable depositAmt
 		obj.deposit(depositAmt);
 				
 		// asking the user to enter a withdraw amount
 		System.out.println("Please enter the amount you would like to Withdraw:");		
+			
+		
 		withdrawlAmt = sc.nextDouble();
-				
+		
+		while (withdrawlAmt < 0) {
+			 System.out.println("You have entered a negative amount. You must enter a positive balance.");
+			 
+			 withdrawlAmt = sc.nextDouble();
+			 }
+						
 		//calling the withdraw method with the variable withdrawlAmt
 		obj.withdraw(withdrawlAmt);
 		
@@ -66,10 +78,28 @@ public class AccountHolderTest {
 			obj.monthlyModifyIntRate(obj.getAnnualIntRate());
 			System.out.printf("%-10s%10s%n", monthLabel, obj.toString());
 		}
-				
-		// outputting the date with my name as author
-		String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
-	   System.out.println("\n"+"Cur dt=" + timeStamp + "\nProgrammed by Bryan Strawter\n");
-	}
+						
+		
+		System.out.println("\n");
+		
+		// setting the interest rate at 5%
+		AccountHolder.modifyMonthlyInterest(.05);
+		
+		System.out.printf("%20s%n","Account Balance w. 5% Interest");
+		System.out.printf("%-10s%10s%n", "Base", obj.toString());
+		
+		// for loop going thru each month with the accumulated interest rate as well as formatting the output
+		for (int month = 1; month <=12; month++) {
+			
+			String monthLabel = String.format("Month %d:", month);
+			obj.monthlyModifyIntRate(obj.getAnnualIntRate());
+			System.out.printf("%-10s%10s%n", monthLabel, obj.toString());
 
+		// outputting the date with my name as author
+	}
+		// outputting the date with my name as author
+		   String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+		   System.out.println("\n"+"Cur dt=" + timeStamp + "\nProgrammed by Bryan Strawter\n");
+	}
+	
 }
