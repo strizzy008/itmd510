@@ -3,8 +3,10 @@ package lab2;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -42,7 +44,10 @@ public class BankRecords extends Client {
 	@Override
 	public void readData() {
 		
+		String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+		
 		try {
+			System.out.println("CSV import started at " + timeStamp);
 			br = new BufferedReader (new FileReader(new File("bank-Detail.csv")));
 			
 			//creating a variable of string type called line
@@ -51,19 +56,18 @@ public class BankRecords extends Client {
 			// a while loop where it reads till the end of the csv and is storing it in the array list split by a delimiter of a comma
 			while ((line = br.readLine()) !=null) {
 				blist.add(Arrays.asList(line.split(",")));
-				System.out.println(blist);
 			}br.close();
 			
 		}catch (Exception e) {
 			System.out.println("There was a problem loading the file");
 		}
 		
+		System.out.println("CSV import file completed at " + timeStamp);
+		
 		
 	}
 	
 
-	
-	
 	//creating the processData method to put the elements of the array list into the array robjs2
 	@Override
 	public void processData() {
@@ -113,7 +117,14 @@ public class BankRecords extends Client {
 		//error handling of the user input to make sure the number is a positive number
 		while (displayNum < 0 ) {
 			 System.out.println("You have entered a negative number. You must enter a positive Number.");
+			 displayNum = sc.nextInt();
 			}
+		//error handling of the user input to make sure the number is below 600
+		while (displayNum > 600 ) {
+			 System.out.println("You need to enter a number less than 600.");
+			 displayNum = sc.nextInt();
+			}
+		
 		
 		// printing out the header information
 		System.out.printf("%nid\t\tAge\t\tSex\t\tRegion\t\t           Income\t\t       Mortgage%n%n");
