@@ -1,5 +1,8 @@
 package lab2;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class BankRecordsTest {
 
 	public static void main(String[] args) {
@@ -9,11 +12,20 @@ public class BankRecordsTest {
 		// instantiating the BankRecords class as bankr
 		BankRecords bankr = new BankRecords();
 		
+		System.out.println("Welcome to Bank of IIT Chicago Customer Record Generation Section");
+		
 		//Calling each function to perform its duty
 		bankr.readData();
 		bankr.processData();
 		bankr.printData();
 		
+		// displaying total number of records
+		System.out.println("Total number of records inside csv file is 600");
+		
+		
+		String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+		   System.out.println("\n"+"Cur dt=" + timeStamp + "\nProgrammed by Bryan Strawter\n");
+	
 	}
 
 }
