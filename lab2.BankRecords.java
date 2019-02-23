@@ -47,7 +47,7 @@ public class BankRecords extends Client {
 		String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
 		
 		try {
-			System.out.println("CSV import started at " + timeStamp);
+			System.out.println("\nCSV import started at " + timeStamp);
 			br = new BufferedReader (new FileReader(new File("bank-Detail.csv")));
 			
 			//creating a variable of string type called line
@@ -111,7 +111,7 @@ public class BankRecords extends Client {
 		int displayNum;
 		
 		// prompting the user to input the amount of records he/she would like to view
-		System.out.println("Greetings, How many records would you like to view?");
+		System.out.println("\nGreetings, How many records would you like to view?");
 		displayNum = sc.nextInt();
 		
 		//error handling of the user input to make sure the number is a positive number
