@@ -31,9 +31,7 @@ public class BankRecordsTest {
 		
 		String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
 		   System.out.println("\n"+"Cur dt=" + timeStamp + "\nProgrammed by Bryan Strawter\n");
-		
-		   
-		   
+				   
 		
 	}
 
