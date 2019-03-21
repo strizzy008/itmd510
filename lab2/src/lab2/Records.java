@@ -1,5 +1,6 @@
 package lab2;
 
+import java.text.NumberFormat;
 import java.util.Arrays;
 
 public class Records extends BankRecords {
@@ -76,13 +77,14 @@ public class Records extends BankRecords {
 		
 		Arrays.sort(robjs2,new LocationComparator());
 	            //set up needed vars for region counts & incomes per loc
-		double townCt = 0, townIncomeSum=0, townMaxIncome=0, townMinIncome=0,
-			   innerCityCt = 0, innerCityIncomeSum=0, innerCityMaxIncome=0, innerCityMinIncome=0,				
+		double townCt = 0, townIncomeSum=0, townMaxIncome=0, townMinIncome=0, 
+			   innerCityCt = 0, innerCityIncomeSum=0, innerCityMaxIncome=0, innerCityMinIncome=0, 		
 			   suburbanCt=0, suburbanIncomeSum=0, suburbanMaxIncome=0, suburbanMinIncome=0,
-			   ruralCt=0, ruralIncomeSum=0, ruralMaxIncome=0, ruralMinIncome=0;		
+			   ruralCt=0, ruralIncomeSum=0, ruralMaxIncome=0, ruralMinIncome=0;	ruralMinIncome=0;
 		
-		for (int i=0;i<robjs2.length;i++)
+		for (int i=0;i<robjs2.length;i++) {
 			if (robjs2[i].getRegion().equals("RURAL")) { 
+				
 				ruralIncomeSum += robjs2[i].getIncome();
 				++ruralCt;
 				
@@ -140,13 +142,40 @@ public class Records extends BankRecords {
 					townMinIncome=robjs2[i].getIncome();					
 				}
 			
-			}
-							
+			}			
+		
+		
+		}
+		
 		//setup resulting averages to print to console and to file
 		double ruralAvg = ruralIncomeSum/(ruralCt);
+		double innerCityAvg = innerCityIncomeSum/(innerCityCt);
+		double suburbanAvg = suburbanIncomeSum/(suburbanCt);
+		double townAvg = townIncomeSum/(townCt);
 		
 		
 		
+		
+		System.out.println("\nData Analytic Results:" + "\n");
+		
+		NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
+		
+		System.out.println("Inner City Region Income Average: " + defaultFormat.format(innerCityAvg));
+		System.out.println("Rural Region Income Average: " + defaultFormat.format(ruralAvg));
+		System.out.println("Suburban Region Income Average: " + defaultFormat.format(suburbanAvg));
+		System.out.println("Town Region Income Average: " + defaultFormat.format(townAvg));
+		
+		
+		System.out.println("Inner City Region Min Income: " + defaultFormat.format(innerCityMinIncome));
+		System.out.println("Rural Region Min Income: " + defaultFormat.format(ruralMinIncome));
+		System.out.println("Suburban Region Min Income: " + defaultFormat.format(suburbanMinIncome));
+		System.out.println("Town Region Min Income: " + defaultFormat.format(townMinIncome));
+		
+		System.out.println("Inner City Region Max Income: " + defaultFormat.format(innerCityMaxIncome));
+		System.out.println("Rural Region Max Income: " + defaultFormat.format(ruralMaxIncome));
+		System.out.println("Suburban Region Max Income: " + defaultFormat.format(suburbanMaxIncome));
+		System.out.println("Town Region Max Income: " + defaultFormat.format(townMaxIncome));
+					
 		
 	}
 	
