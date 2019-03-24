@@ -1,0 +1,26 @@
+Data Analytics
+
+Inner City Region Income Average: $27,752.87
+Rural Region Income Average: $30,027.61
+Suburban Region Income Average: $28,656.36
+Town Region Income Average: $26,802.19
+
+Inner City Region Min Income: $266,222.80
+Rural Region Min Income: $57,398.10
+Suburban Region Min Income: $63,130.10
+Town Region Min Income: $59,803.90
+
+Inner City Region Max Income: $266,222.80
+Rural Region Max Income: $57,398.10
+Suburban Region Max Income: $63,130.10
+Town Region Max Income: $59,803.90
+
+Innercity region females with mortgage and savings acct: 31
+Rural regrion females with mortgage and savings acct: 9
+Suburban region females with mortgage and savings acct: 4
+Town region females with mortgage and savings acct: 27
+
+Innercity region males with car and 1 child: 15
+Rural regrion males with car and 1 child: 9
+Suburban region males with car and 1 child: 3
+Town region males with car and 1 child: 7

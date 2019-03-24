@@ -7,6 +7,8 @@
 
 package lab2;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.Arrays;
 
@@ -14,14 +16,26 @@ import java.util.Arrays;
 // creating a main class which extends Bank Records so I can utilize its classes
 public class Records extends BankRecords {
 
+	static FileWriter fw = null;
+	
+	public Records(){
+		try {
+			fw = new FileWriter("bankrecords.txt");
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+	}	
+		
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		
+		
 		// Creating an object for this current class which extends Bank Records
 		Records r = new Records();
-		
-		
+				
 		// calling the readData function from Bank Records to collect the data in an array list
 		r.readData();
 		
@@ -44,8 +58,6 @@ public class Records extends BankRecords {
 		// calling maleComp function to show how many males have a car and 1 child per region.
 		maleComp();
 	}
-
-	
 	
 	//MaxMinCalc function to show the highest and lowest income income per region
 	public static void MaxMinCalc() {
@@ -125,10 +137,32 @@ public class Records extends BankRecords {
 		System.out.println("Rural Region Max Income: " + defaultFormat.format(ruralMaxIncome));
 		System.out.println("Suburban Region Max Income: " + defaultFormat.format(suburbanMaxIncome));
 		System.out.println("Town Region Max Income: " + defaultFormat.format(townMaxIncome)+"\n");
+	
+		
+		try {
+			fw.write(String.format("%n")+"Inner City Region Min Income: " + defaultFormat.format(innerCityMinIncome));
+			fw.write(String.format("%n")+"Rural Region Min Income: " + defaultFormat.format(ruralMinIncome));
+			fw.write(String.format("%n")+"Suburban Region Min Income: " + defaultFormat.format(suburbanMinIncome));
+			fw.write(String.format("%n")+"Town Region Min Income: " + defaultFormat.format(townMinIncome) + "\n");
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		
+		try {
+			fw.write(String.format("%n")+"Inner City Region Max Income: " + defaultFormat.format(innerCityMaxIncome));
+			fw.write(String.format("%n")+"Rural Region Max Income: " + defaultFormat.format(ruralMaxIncome));
+			fw.write(String.format("%n")+"Suburban Region Max Income: " + defaultFormat.format(suburbanMaxIncome));
+			fw.write(String.format("%n")+"Town Region Max Income: " + defaultFormat.format(townMaxIncome)+"\n");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 					
 	}
-	
-	
+		
 	// avgCalc class to gather the male income and the female income as well as the male count and female count
 	public static void avgCalc(){
 		
@@ -215,6 +249,17 @@ public class Records extends BankRecords {
 		System.out.println("Suburban region females with mortgage and savings acct: " + suburbanFmCt);
 		System.out.println("Town region females with mortgage and savings acct: " + townFmCt +"\n");
 		
+		try {
+			fw.write(String.format("%n") + "Innercity region females with mortgage and savings acct: " + innerCityFmCt);
+			fw.write(String.format("%n") + "Rural regrion females with mortgage and savings acct: " + ruralFmCt);
+			fw.write(String.format("%n") + "Suburban region females with mortgage and savings acct: " + suburbanFmCt);
+			fw.write(String.format("%n") + "Town region females with mortgage and savings acct: " + townFmCt +"\n");
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	// Location Comp function to calculate the average income for each region	
@@ -283,6 +328,18 @@ public class Records extends BankRecords {
 		System.out.println("Suburban Region Income Average: " + defaultFormat.format(suburbanAvg));
 		System.out.println("Town Region Income Average: " + defaultFormat.format(townAvg) + "\n");
 		
+		try {
+			fw.write(String.format("Data Analytics" + String.format("%n")));
+			fw.write(String.format("%n") + "Inner City Region Income Average: " + defaultFormat.format(innerCityAvg));
+			fw.write(String.format("%n") + "Rural Region Income Average: " + defaultFormat.format(ruralAvg));
+			fw.write(String.format("%n") + "Suburban Region Income Average: " + defaultFormat.format(suburbanAvg));
+			fw.write(String.format("%n") + "Town Region Income Average: " + defaultFormat.format(townAvg) + "\n");			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	
@@ -340,9 +397,25 @@ public class Records extends BankRecords {
 		System.out.println("Suburban region males with car and 1 child: " + suburbanMct);
 		System.out.println("Town region males with car and 1 child: " + townMct +"\n");
 		
+		try {
+			fw.write(String.format("%n") + "Innercity region males with car and 1 child: " + innerCityMct);
+			fw.write(String.format("%n") + "Rural regrion males with car and 1 child: " + ruralMct);
+			fw.write(String.format("%n") + "Suburban region males with car and 1 child: " + suburbanMct);
+			fw.write(String.format("%n") + "Town region males with car and 1 child: " + townMct +"\n");
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+				
 		
+		
+	   try {
+		fw.close();
+		} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		}
 	}
-	
 	
 	
 }

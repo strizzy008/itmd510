@@ -7,8 +7,7 @@ public class LocationComparator implements Comparator<BankRecords>{
 	@Override
 	public int compare(BankRecords o1, BankRecords o2) {
 	// use compareTo to compare strings
-		int result = o1.getRegion().compareTo(o2.getRegion());
-		return result;
+		return o1.getRegion().compareTo(o2.getRegion());
 	
 	
 	//String s1 = (String) o1.getRegion();
