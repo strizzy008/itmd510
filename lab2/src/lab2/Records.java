@@ -10,7 +10,9 @@ package lab2;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 
 
 // creating a main class which extends Bank Records so I can utilize its classes
@@ -407,6 +409,24 @@ public class Records extends BankRecords {
 			e1.printStackTrace();
 		}
 				
+		String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+		   System.out.println("\n"+"Cur dt=" + timeStamp + "\nProgrammed by Bryan Strawter\n");
+		
+
+			try {
+				
+				fw.write(String.format("%n") + "Innercity region males with car and 1 child: " + innerCityMct);
+				
+				String timeStamp2 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+				   fw.write(String.format("%n")+"\n"+"Cur dt=" + timeStamp2 + "\nProgrammed by Bryan Strawter\n");
+				
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+					
+		   
+		
 		
 		
 	   try {

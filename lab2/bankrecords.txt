@@ -24,3 +24,8 @@ Innercity region males with car and 1 child: 15
 Rural regrion males with car and 1 child: 9
 Suburban region males with car and 1 child: 3
 Town region males with car and 1 child: 7
+
+Innercity region males with car and 1 child: 15
+
+Cur dt=2019/03/30 20:11:56
+Programmed by Bryan Strawter
