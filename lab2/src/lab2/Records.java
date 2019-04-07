@@ -29,12 +29,9 @@ public class Records extends BankRecords {
 		} 
 	}	
 		
-	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		
-		
+			
 		// Creating an object for this current class which extends Bank Records
 		Records r = new Records();
 				
