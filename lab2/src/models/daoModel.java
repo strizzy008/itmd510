@@ -22,15 +22,16 @@ public class daoModel {
 		
 		try{
 		// Open a connection
-			System.out.println("Connecting todatabase to create Table...");
-			
+			System.out.println("Connecting to database to create Table...");
+			//conn.connect();	
 			System.out.println("Connected database successfully...");
+			
 			
 			// Execute create query
 			System.out.println("Creating table in given database...");
 			stmt= conn.connect().createStatement();
 			
-			String sql= "CREATE TABLE yourTableName_tab "+ "(pid INTEGER not NULL AUTO_INCREMENT,"+ " id VARCHAR(10), "+" income numeric(8,2), "+ " pep VARCHAR(3), "+ " PRIMARY KEY ( pid ))";
+			String sql= "CREATE TABLE b_stra_tab "+ "(pid INTEGER not NULL AUTO_INCREMENT,"+ " id VARCHAR(10), "+" income numeric(8,2), "+ " pep VARCHAR(3), "+ " PRIMARY KEY ( pid ))";
 			
 			stmt.executeUpdate(sql);
 			System.out.println("Created table in given database...");
@@ -62,6 +63,7 @@ public class daoModel {
 	 // (id, income, pep) into your database table
 
 	 sql = " ";
+	 
 	 stmt.executeUpdate(sql);
 	 }
 	 conn.connect().close();
