@@ -17,7 +17,7 @@ public class BankRecords extends Client {
 	static ArrayList<List<String>> blist = new ArrayList<>();
 	
 	//creating the array called robjs2
-	static BankRecords robjs2[] = new BankRecords[600];
+	protected static BankRecords robjs2[] = new BankRecords[600];
 	
 	//creating a buffer reader object called br
 	static BufferedReader br;
