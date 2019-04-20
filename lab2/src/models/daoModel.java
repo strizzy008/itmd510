@@ -62,9 +62,17 @@ public class daoModel {
 	 // finish string assignment below to insert all object data
 	 // (id, income, pep) into your database table
 
-	 sql = "INSERT INTO b_stra_tab values" + robjs2[i].getId() + robjs2[i].getIncome() + robjs2[i].getPep();
+	// sql = "INSERT INTO b_stra_tab(id, income, pep)"+ "values(robjs2[i].getId()),(robjs2[i].getIncome()),(robjs2[i].getPep())";
 	 
-	 stmt.executeUpdate(sql);
+	 sql = "INSERT INTO b_stra_tab(id,income,pep) " +"VALUES (' "+robjs2[i].getId()+" ', ' "+robjs2[i].getIncome()+" ', '"+robjs2[i].getPep()+"' )";
+	 	 
+	 
+	// stmt.executeUpdate(sql);
+	 
+	 
+	 System.out.println(sql);
+	 
+	 
 	 }
 	 conn.connect().close();
 	 } catch (SQLException se) { se.printStackTrace(); }
