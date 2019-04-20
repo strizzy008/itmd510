@@ -49,7 +49,7 @@ public class daoModel {
 	}
 		
 	// INSERT INTO METHOD
-	public void insertRecords(BankRecords[] robjs) {
+	public void insertRecords(BankRecords[] robjs2) {
 	 try {
 	 // Execute a query
 	 System.out.println("Inserting records into the table...");
@@ -57,12 +57,12 @@ public class daoModel {
 	 String sql = null;
 
 	 // Include all object data to the database table
-	 for (int i = 0; i < robjs.length; ++i) {
+	 for (int i = 0; i < robjs2.length; ++i) {
 
 	 // finish string assignment below to insert all object data
 	 // (id, income, pep) into your database table
 
-	 sql = " ";
+	 sql = "INSERT INTO b_stra_tab values" + robjs2[i].getId() + robjs2[i].getIncome() + robjs2[i].getPep();
 	 
 	 stmt.executeUpdate(sql);
 	 }
@@ -75,7 +75,7 @@ public class daoModel {
 		ResultSet rs = null;
 		try {
 			stmt = conn.connect().createStatement();
-			String sql = "SELECT * from yourTableName_tab";
+			String sql = "SELECT * from b_stra_tab";
 			rs = stmt.executeQuery(sql);
 			conn.connect().close();	
 			
