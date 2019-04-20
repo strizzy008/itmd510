@@ -57,31 +57,26 @@ public class daoModel {
 	 String sql = null;
 	 String startInsertBrac = "(";
 	 String closeInsertBrac = ")";
+	 String insertTabCmd = "INSERT INTO b_stra_tab(id,income,pep) VALUES" + startInsertBrac;
+	 String id,pep;
+	 double income;
 
 	 // Include all object data to the database table
-	 for (int i = 0; i < robjs2.length; ++i) {
+	 for(int i=0; i<robjs2.length; ++i) {
 
 	 // finish string assignment below to insert all object data
 	 // (id, income, pep) into your database table
 
 	// sql = "INSERT INTO b_stra_tab(id, income, pep)"+ "values(robjs2[i].getId()),(robjs2[i].getIncome()),(robjs2[i].getPep())";
-	 
-	 //sql = "INSERT INTO b_stra_tab(id,income,pep) " +"VALUES (' "+robjs2[i].getId()+" ', ' "+robjs2[i].getIncome()+" ', '"+robjs2[i].getPep()+"' )";
-
-	 String insertTabCmd = "INSERT INTO b_stra_tab(id,income,pep) VALUES" + startInsertBrac;
-
-	         
-	 
-	                 String insertCmd = (insertTabCmd + "'" + robjs2[i].getId() + "," +"'"
-	                         +robjs2[i].getIncome() + "," + "'" +robjs2[i].getPep() + "'"
-	                         + closeInsertBrac);
-
-	                System.out.println(insertCmd);
-	           
-	 
-	 
-	  
-	// stmt.executeUpdate(sql);
+	 	 
+		 id=robjs2[i].getId();
+		 income=robjs2[i].getIncome();
+		 pep=robjs2[i].getPep();
+		 
+		 sql = "INSERT INTO b_stra_tab(id,income,pep) " +"VALUES (' "+id+" ', ' "+income+" ', '"+pep+"' )";
+		 
+		          
+	 stmt.executeUpdate(sql);
 	   
 	 
 	 }

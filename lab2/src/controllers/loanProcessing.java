@@ -19,7 +19,7 @@ public class loanProcessing extends lab2.BankRecords {
 		dao.insertRecords(robjs2); // perform inserts
 		ResultSet rs;
 		rs = dao.retrieveRecords();
-		new loanViews().runView(rs);
+	//	new loanViews().runView(rs);
 			
 		
 	}
