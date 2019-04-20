@@ -55,9 +55,6 @@ public class daoModel {
 	 System.out.println("Inserting records into the table...");
 	 stmt = conn.connect().createStatement();
 	 String sql = null;
-	 String startInsertBrac = "(";
-	 String closeInsertBrac = ")";
-	 String insertTabCmd = "INSERT INTO b_stra_tab(id,income,pep) VALUES" + startInsertBrac;
 	 String id,pep;
 	 double income;
 
@@ -73,7 +70,7 @@ public class daoModel {
 		 income=robjs2[i].getIncome();
 		 pep=robjs2[i].getPep();
 		 
-		 sql = "INSERT INTO b_stra_tab(id,income,pep) " +"VALUES (' "+id+" ', ' "+income+" ', '"+pep+"' )";
+		 sql = "INSERT INTO b_stra_tab(id,income,pep) " + "VALUES (' "+id+" ', ' "+income+" ', '"+pep+"' )";
 		 
 		          
 	 stmt.executeUpdate(sql);
