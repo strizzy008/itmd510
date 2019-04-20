@@ -55,6 +55,8 @@ public class daoModel {
 	 System.out.println("Inserting records into the table...");
 	 stmt = conn.connect().createStatement();
 	 String sql = null;
+	 String startInsertBrac = "(";
+	 String closeInsertBrac = ")";
 
 	 // Include all object data to the database table
 	 for (int i = 0; i < robjs2.length; ++i) {
@@ -64,14 +66,23 @@ public class daoModel {
 
 	// sql = "INSERT INTO b_stra_tab(id, income, pep)"+ "values(robjs2[i].getId()),(robjs2[i].getIncome()),(robjs2[i].getPep())";
 	 
-	 sql = "INSERT INTO b_stra_tab(id,income,pep) " +"VALUES (' "+robjs2[i].getId()+" ', ' "+robjs2[i].getIncome()+" ', '"+robjs2[i].getPep()+"' )";
-	 	 
+	 //sql = "INSERT INTO b_stra_tab(id,income,pep) " +"VALUES (' "+robjs2[i].getId()+" ', ' "+robjs2[i].getIncome()+" ', '"+robjs2[i].getPep()+"' )";
+
+	 String insertTabCmd = "INSERT INTO b_stra_tab(id,income,pep) VALUES" + startInsertBrac;
+
+	         
 	 
+	                 String insertCmd = (insertTabCmd + "'" + robjs2[i].getId() + "," +"'"
+	                         +robjs2[i].getIncome() + "," + "'" +robjs2[i].getPep() + "'"
+	                         + closeInsertBrac);
+
+	                System.out.println(insertCmd);
+	           
+	 
+	 
+	  
 	// stmt.executeUpdate(sql);
-	 
-	 
-	 System.out.println(sql);
-	 
+	   
 	 
 	 }
 	 conn.connect().close();
