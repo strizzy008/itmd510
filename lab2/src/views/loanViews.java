@@ -1,3 +1,11 @@
+/* 
+ * 
+ * This class is created to create the view of the output of the 
+ * data we want to see in a table format.
+ * 
+ * */
+
+
 package views;
 
 import java.sql.ResultSet;

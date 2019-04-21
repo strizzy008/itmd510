@@ -1,11 +1,19 @@
+/* 
+ * This class handles CRUD operations of the MYSQL DB 
+ * 
+ * */
+
+
 package models;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import lab2.BankRecords;
 
-public class daoModel {
+public class daoModel extends BankRecords{
 
 	//Declare DB objects
 	dbConnect conn= null;
@@ -23,7 +31,6 @@ public class daoModel {
 		try{
 		// Open a connection
 			System.out.println("Connecting to database to create Table...");
-			//conn.connect();	
 			System.out.println("Connected database successfully...");
 			
 			
@@ -34,7 +41,7 @@ public class daoModel {
 			String sql= "CREATE TABLE b_stra_tab "+ "(pid INTEGER not NULL AUTO_INCREMENT,"+ " id VARCHAR(10), "+" income numeric(8,2), "+ " pep VARCHAR(3), "+ " PRIMARY KEY ( pid ))";
 			
 			stmt.executeUpdate(sql);
-			System.out.println("Created table in given database...");
+			System.out.println("Created table on the Papa 24h / 364 days server");
 	
 			conn.connect().close();
 		}
@@ -48,44 +55,43 @@ public class daoModel {
 	
 	}
 		
-	// INSERT INTO METHOD
+	// Insert method to enter in the array elements from robjs2
 	public void insertRecords(BankRecords[] robjs2) {
 	 try {
 	 // Execute a query
 	 System.out.println("Inserting records into the table...");
-	 stmt = conn.connect().createStatement();
-	 String sql = null;
-	 String id,pep;
-	 double income;
-
-	 // Include all object data to the database table
-	 for(int i=0; i<robjs2.length; ++i) {
-
-	 // finish string assignment below to insert all object data
-	 // (id, income, pep) into your database table
-
-	// sql = "INSERT INTO b_stra_tab(id, income, pep)"+ "values(robjs2[i].getId()),(robjs2[i].getIncome()),(robjs2[i].getPep())";
-	 	 
-		 id=robjs2[i].getId();
-		 income=robjs2[i].getIncome();
-		 pep=robjs2[i].getPep();
 		 
-		 sql = "INSERT INTO b_stra_tab(id,income,pep) " + "VALUES (' "+id+" ', ' "+income+" ', '"+pep+"' )";
-		 
-		          
-	 stmt.executeUpdate(sql);
-	   
+	 String closeInsertBrac = ");";
+	 String startInsertBrac = "(";
+	 String insertTabCmd = "INSERT INTO b_stra_tab (id,income,pep) VALUES" + startInsertBrac;
+		 // Include all object data to the database table
 	 
-	 }
+	 stmt= conn.connect().createStatement();
+	 for (int i = 0; i < 600; i++) {
+		  
+			String insertCmd = (insertTabCmd + "'" + robjs2[i].getId() + "',"
+					+ +robjs2[i].getIncome() + "," + "'" + robjs2[i].getPep() + "'"
+					+ closeInsertBrac);
+			
+			stmt.executeUpdate(insertCmd);
+			//System.out.println(insertCmd);
+					
+		}
+	 
+	 System.out.println("Records added!");
 	 conn.connect().close();
 	 } catch (SQLException se) { se.printStackTrace(); }
 	}// INSERT INTO METHOD
 	
 	
+	
+
+	
+	// this class is designed to retrieve the recrods from the db and store it in the variable for result set, rs
 	public ResultSet retrieveRecords() {
 		ResultSet rs = null;
 		try {
-			stmt = conn.connect().createStatement();
+		    stmt = conn.connect().createStatement();
 			String sql = "SELECT * from b_stra_tab";
 			rs = stmt.executeQuery(sql);
 			conn.connect().close();	
