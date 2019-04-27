@@ -55,7 +55,7 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
             <PasswordField fx:id="txtUserPassword" layoutX="234.0" layoutY="196.0" />
-            <Button layoutX="340.0" layoutY="273.0" mnemonicParsing="false" onAction="#login" text="Submit" />
+            <Button fx:id="submit" layoutX="340.0" layoutY="273.0" mnemonicParsing="false" onAction="#login" text="Submit" />
             <Label layoutX="234.0" layoutY="94.0" text="User Name" />
             <Label layoutX="234.0" layoutY="180.0" text="Password" />
             <TextField fx:id="txtUserName" layoutX="234.0" layoutY="110.0" />

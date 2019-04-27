@@ -1,28 +1,33 @@
 package controllers;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import java.awt.Button;
+import java.awt.Label;
+import java.awt.TextField;
 
-public class LoginController {
+import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
+
+public class loginController {
 
 	@FXML
 	private TextField txtUsername;
 
 	@FXML
-	private PasswordField txtPassword;
-
+	private PasswordField txtUserPassword;
+	
+	@FXML
+	private Button submit;
+	
 	@FXML
 	private Label lblError;
 	
-public LoginController() { 	}
+public loginController() { 	}
 
 	public void login() {
-
+						
 		lblError.setText("");
 		String username = this.txtUsername.getText();
-		String password = this.txtPassword.getText();
+		String password = this.txtUserPassword.getText();
 
 		// Validations
 		if (username == null || username.trim().equals("")) {
@@ -44,9 +49,22 @@ public LoginController() { 	}
 		} 
 		else { lblError.setText("Login incorrect!"); }
 	}
+
+	submit.addActionListener(new ActionListener(){
+				
+		@Override public void actionPerformed(ActionEvent e) 
+	}
+
+}	 
+
+
+
 }
+
+
+
 
 	
 	
 	
-}
+
