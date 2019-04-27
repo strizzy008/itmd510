@@ -23,8 +23,7 @@ import views.loanViews;
 public class loanProcessing extends lab2.BankRecords {
 	
 	public static void main(String[] args) {
-		
-		
+				
 		// creating new connection object 
 		dbConnect conn = new dbConnect();
 		
@@ -39,6 +38,11 @@ public class loanProcessing extends lab2.BankRecords {
 		
 		//creating new modling object for database CRUD
 		daoModel dao = new daoModel();
+		
+		
+		//creating the DB able b_stra_tab
+		dao.createTable();
+		
 		
 		// inserting the array elements of the robjs2 array from bank records class
 		dao.insertRecords(robjs2); // perform inserts
