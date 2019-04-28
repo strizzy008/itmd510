@@ -48,17 +48,17 @@ public class loanProcessing extends lab2.BankRecords {
 		dao.insertRecords(robjs2); // perform inserts
 		
 		// creating new result set object to query the db from
-		ResultSet rs;
+		//ResultSet rs;
 		
 		// setting rs = to the outcome of the retrieveRecords method
-		rs = dao.retrieveRecords();
+		//rs = dao.retrieveRecords();
 		
 		// creating a view with the result set being the data source
-		new loanViews().runView(rs);
+		//new loanViews().runView(rs);
 		
 		//documenting the time
-		String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
-		System.out.println("\nCur dt=" + timeStamp + "\nProgrammed by Bryan Strawter\n");
+		//String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+		//System.out.println("\nCur dt=" + timeStamp + "\nProgrammed by Bryan Strawter\n");
 			
 		
 	}

@@ -38,7 +38,7 @@ public class daoModel extends BankRecords{
 			System.out.println("Creating table in given database...");
 			stmt= conn.connect().createStatement();
 			
-			String sql= "CREATE TABLE b_stra_onhand "+ "(pid INTEGER not NULL AUTO_INCREMENT,"+ " id VARCHAR(10), "+" income numeric(8,2), "+ " pep VARCHAR(3), "+ " PRIMARY KEY ( pid ))";
+			String sql= "CREATE TABLE b_stra_onhand "+ "(pid INTEGER not NULL AUTO_INCREMENT,"+ " maker VARCHAR(20), "+" model VARCHAR(25), "+" fuel_type VARCHAR(15), "+" PRIMARY KEY ( pid ))";
 			
 			stmt.executeUpdate(sql);
 			System.out.println("Created table on the Papa 24h / 364 days server");
@@ -63,14 +63,14 @@ public class daoModel extends BankRecords{
 		 
 	 String closeInsertBrac = ");";
 	 String startInsertBrac = "(";
-	 String insertTabCmd = "INSERT INTO b_stra_tab (id,income,pep) VALUES" + startInsertBrac;
+	 String insertTabCmd = "INSERT INTO b_stra_onhand (maker,model,fuel_type) VALUES" + startInsertBrac;
 		 // Include all object data to the database table
 	 
 	 stmt= conn.connect().createStatement();
-	 for (int i = 0; i < 600; i++) {
+	 for (int i = 0; i < 19; i++) {
 		  
-			String insertCmd = (insertTabCmd + "'" + robjs2[i].getId() + "',"
-					+ +robjs2[i].getIncome() + "," + "'" + robjs2[i].getPep() + "'"
+			String insertCmd = (insertTabCmd + "'" + robjs2[i].getMaker() + "',"
+					+ robjs2[i].getModel() + "," + "'" + robjs2[i].getFuel_type() + "'"
 					+ closeInsertBrac);
 			
 			stmt.executeUpdate(insertCmd);
@@ -84,8 +84,6 @@ public class daoModel extends BankRecords{
 	}// INSERT INTO METHOD
 	
 	
-	
-
 	
 	// this class is designed to retrieve the recrods from the db and store it in the variable for result set, rs
 	public ResultSet retrieveRecords() {

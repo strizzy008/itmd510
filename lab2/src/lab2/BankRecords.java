@@ -39,6 +39,13 @@ public class BankRecords extends Client {
 	private String mortgage;
 	private String pep;
 	
+	
+	private String maker;
+	private String model;
+	private String fuel_type;
+	
+	
+	
 	// creating the read data method to read in the csv file in a try catch fashion where if it does not find the file then it throws an exception
 	// It then opens the file for a readLine operation and then it closes the file once completed
 	@Override
@@ -48,7 +55,7 @@ public class BankRecords extends Client {
 		
 		try {
 			System.out.println("\nCSV import started at " + timeStamp);
-			br = new BufferedReader (new FileReader(new File("bank-Detail.csv")));
+			br = new BufferedReader (new FileReader(new File("onHandInventory.csv")));
 			
 			//creating a variable of string type called line
 			String line;
@@ -85,18 +92,9 @@ public class BankRecords extends Client {
 	    	robjs2[idx] = new BankRecords();
 	    	//call setters below 
 	    	
-	    	robjs2[idx].setId(rowData.get(0)); //get first column value   	
-	    	robjs2[idx].setAge(Integer.parseInt(rowData.get(1))); // get second column	    	
-	    	robjs2[idx].setSex(rowData.get(2)); // get third column
-	    	robjs2[idx].setRegion(rowData.get(3)); // get fourth column
-	    	robjs2[idx].setIncome(Double.parseDouble(rowData.get(4))); // get fifth column
-	    	robjs2[idx].setMarried(rowData.get(5)); // get sixth column
-	    	robjs2[idx].setChildren(Integer.parseInt(rowData.get(6))); // get seventh column
-	    	robjs2[idx].setCar(rowData.get(7)); // get eighth column
-	    	robjs2[idx].setSave_act(rowData.get(8)); // get ninth column
-	    	robjs2[idx].setCurrent_act(rowData.get(9)); // get tenth column
-	    	robjs2[idx].setMortgage(rowData.get(10)); // get eleventh column
-	    	robjs2[idx].setPep(rowData.get(11)); // get twelfth column
+	    	robjs2[idx].setMaker(rowData.get(0)); //get first column value   	
+	    	robjs2[idx].setModel(rowData.get(1)); // get second column	    	
+	       	robjs2[idx].setFuel_type(rowData.get(2));// get the second column
 	    	idx++;
 	    }
 	    
@@ -258,6 +256,37 @@ public class BankRecords extends Client {
 	
 	public void setPep(String pep) {
 		this.pep = pep;
+	}
+
+
+	public String getMaker() {
+		return maker;
+	}
+
+
+	public void setMaker(String maker) {
+		this.maker = maker;
+	}
+
+
+	public String getModel() {
+		return model;
+	}
+
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	 
+
+	public String getFuel_type() {
+		return fuel_type;
+	}
+
+
+	public void setFuel_type(String fuel_type) {
+		this.fuel_type = fuel_type;
 	}
 
 	
