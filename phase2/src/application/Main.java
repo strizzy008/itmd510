@@ -13,22 +13,21 @@ public class Main extends Application {
 		try {
 		stage = primaryStage;
 		AnchorPane root = (AnchorPane) 
-FXMLLoader.load(getClass()
-          .getResource("/views/LoginView.fxml"));
+		FXMLLoader.load(getClass()
+        .getResource("/views/LoginView.fxml"));
 		Scene scene = new Scene(root);
-scene.getStylesheets().add(getClass()
-     .getResource("styles.css").toExternalForm());
+		scene.getStylesheets().add(getClass()
+		.getResource("styles.css").toExternalForm());
 		stage.setTitle("Login View");
 		stage.setScene(scene);
 		stage.show();
 
 		} catch (Exception e) {
-		System.out.println("Error occured while inflating view: " + 
-e);
+		System.out.println("Error occured while inflating view: " + e);
 		}
 	}
 
 	public static void main(String[] args) {
-		launch(args);
+		
 	}
 }

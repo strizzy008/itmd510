@@ -3,6 +3,8 @@ package controllers;
 import java.awt.Button;
 import java.awt.Label;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -10,7 +12,7 @@ import javafx.scene.control.PasswordField;
 public class loginController {
 
 	@FXML
-	private TextField txtUsername;
+	private TextField txtUserName;
 
 	@FXML
 	private PasswordField txtUserPassword;
@@ -26,7 +28,7 @@ public loginController() { 	}
 	public void login() {
 						
 		lblError.setText("");
-		String username = this.txtUsername.getText();
+		String username = this.txtUserName.getText();
 		String password = this.txtUserPassword.getText();
 
 		// Validations
@@ -48,17 +50,26 @@ public loginController() { 	}
 			return;
 		} 
 		else { lblError.setText("Login incorrect!"); }
-	}
+	
 
 	submit.addActionListener(new ActionListener(){
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			login();
+			
+		}
 				
-		@Override public void actionPerformed(ActionEvent e) 
-	}
+		
+		
+		
+		
 
-}	 
+	}	 
 
 
-
+	
 }
 
 

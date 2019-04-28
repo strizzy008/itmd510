@@ -38,7 +38,7 @@ public class daoModel extends BankRecords{
 			System.out.println("Creating table in given database...");
 			stmt= conn.connect().createStatement();
 			
-			String sql= "CREATE TABLE b_stra_tab "+ "(pid INTEGER not NULL AUTO_INCREMENT,"+ " id VARCHAR(10), "+" income numeric(8,2), "+ " pep VARCHAR(3), "+ " PRIMARY KEY ( pid ))";
+			String sql= "CREATE TABLE b_stra_onhand "+ "(pid INTEGER not NULL AUTO_INCREMENT,"+ " id VARCHAR(10), "+" income numeric(8,2), "+ " pep VARCHAR(3), "+ " PRIMARY KEY ( pid ))";
 			
 			stmt.executeUpdate(sql);
 			System.out.println("Created table on the Papa 24h / 364 days server");
