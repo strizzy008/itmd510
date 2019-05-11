@@ -17,7 +17,7 @@ public class BankRecords extends Client {
 	static ArrayList<List<String>> blist = new ArrayList<>();
 	
 	//creating the array called robjs2
-	protected static BankRecords robjs2[] = new BankRecords[600];
+	public static BankRecords robjs2[] = new BankRecords[600];
 	
 	//creating a buffer reader object called br
 	static BufferedReader br;
@@ -35,16 +35,9 @@ public class BankRecords extends Client {
 	private int children;
 	private String car;
 	private String save_act;
-	private String current_act;
-	private String mortgage;
-	private String pep;
-	
-	
-	private String maker;
+	private String make;
 	private String model;
-	private String fuel_type;
-	
-	
+	private String fuel;
 	
 	// creating the read data method to read in the csv file in a try catch fashion where if it does not find the file then it throws an exception
 	// It then opens the file for a readLine operation and then it closes the file once completed
@@ -55,7 +48,7 @@ public class BankRecords extends Client {
 		
 		try {
 			System.out.println("\nCSV import started at " + timeStamp);
-			br = new BufferedReader (new FileReader(new File("onHandInventory.csv")));
+			br = new BufferedReader (new FileReader(new File("bank-Detail.csv")));
 			
 			//creating a variable of string type called line
 			String line;
@@ -92,9 +85,18 @@ public class BankRecords extends Client {
 	    	robjs2[idx] = new BankRecords();
 	    	//call setters below 
 	    	
-	    	robjs2[idx].setMaker(rowData.get(0)); //get first column value   	
-	    	robjs2[idx].setModel(rowData.get(1)); // get second column	    	
-	       	robjs2[idx].setFuel_type(rowData.get(2));// get the second column
+	    	robjs2[idx].setId(rowData.get(0)); //get first column value   	
+	    	robjs2[idx].setAge(Integer.parseInt(rowData.get(1))); // get second column	    	
+	    	robjs2[idx].setSex(rowData.get(2)); // get third column
+	    	robjs2[idx].setRegion(rowData.get(3)); // get fourth column
+	    	robjs2[idx].setIncome(Double.parseDouble(rowData.get(4))); // get fifth column
+	    	robjs2[idx].setMarried(rowData.get(5)); // get sixth column
+	    	robjs2[idx].setChildren(Integer.parseInt(rowData.get(6))); // get seventh column
+	    	robjs2[idx].setCar(rowData.get(7)); // get eighth column
+	    	robjs2[idx].setSave_act(rowData.get(8)); // get ninth column
+	    	robjs2[idx].setMake(rowData.get(9)); // get tenth column
+	    	robjs2[idx].setModel(rowData.get(10)); // get eleventh column
+	    	robjs2[idx].setFuel(rowData.get(11)); // get twelfth column
 	    	idx++;
 	    }
 	    
@@ -128,13 +130,13 @@ public class BankRecords extends Client {
 		System.out.printf("%nid\t\tAge\t\tSex\t\tRegion\t\t           Income\t\t       Mortgage%n%n");
 		
 		// for loop to print out the requested information in a formatted fashion
-		for (int i=0;i<displayNum;i++){
+		//for (int i=0;i<displayNum;i++){
 				
 			 	
-		    	String s=String.format("%s\t\t%s\t\t%s\t\t%10s\t\t%10s\t\t%10s\t\t", robjs2[i].getId(),
-		    			robjs2[i].getAge(),robjs2[i].getSex(),robjs2[i].getRegion(),robjs2[i].getIncome(),robjs2[i].getMortgage());
+		    	//String s=String.format("%s\t\t%s\t\t%s\t\t%10s\t\t%10s\t\t%10s\t\t", robjs2[i].getId(),
+		    	//		robjs2[i].getAge(),robjs2[i].getSex(),robjs2[i].getRegion(),robjs2[i].getIncome(),robjs2[i].getMortgage());
 		    		
-		    	System.out.println(s);}
+		    //	System.out.println(s);}
 		
 	}
 
@@ -228,44 +230,14 @@ public class BankRecords extends Client {
 		this.save_act = save_act;
 	}
 
-
-	public String getCurrent_act() {
-		return current_act;
-	}
-
 	
-	public void setCurrent_act(String current_act) {
-		this.current_act = current_act;
-	}
-
-	
-	public String getMortgage() {
-		return mortgage;
+	public String getMake() {
+		return make;
 	}
 
 
-	public void setMortgage(String morgtage) {
-		this.mortgage = morgtage;
-	}
-
-
-	public String getPep() {
-		return pep;
-	}
-
-	
-	public void setPep(String pep) {
-		this.pep = pep;
-	}
-
-
-	public String getMaker() {
-		return maker;
-	}
-
-
-	public void setMaker(String maker) {
-		this.maker = maker;
+	public void setMake(String make) {
+		this.make = make;
 	}
 
 
@@ -278,20 +250,18 @@ public class BankRecords extends Client {
 		this.model = model;
 	}
 
-	 
 
-	public String getFuel_type() {
-		return fuel_type;
+	public String getFuel() {
+		return fuel;
 	}
 
 
-	public void setFuel_type(String fuel_type) {
-		this.fuel_type = fuel_type;
+	public void setFuel(String fuel) {
+		this.fuel = fuel;
 	}
 
 	
 }
-
 
 
 

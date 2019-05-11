@@ -38,7 +38,7 @@ public class daoModel extends BankRecords{
 			System.out.println("Creating table in given database...");
 			stmt= conn.connect().createStatement();
 			
-			String sql= "CREATE TABLE b_stra_onhand "+ "(pid INTEGER not NULL AUTO_INCREMENT,"+ " maker VARCHAR(20), "+" model VARCHAR(25), "+" fuel_type VARCHAR(15), "+" PRIMARY KEY ( pid ))";
+			String sql= "CREATE TABLE b_stra_final3 "+ "(pid INTEGER not NULL AUTO_INCREMENT,"+ " make VARCHAR(15), "+" model VARCHAR(20), "+ " fuel VARCHAR(15), "+ " PRIMARY KEY ( pid ))";
 			
 			stmt.executeUpdate(sql);
 			System.out.println("Created table on the Papa 24h / 364 days server");
@@ -63,15 +63,13 @@ public class daoModel extends BankRecords{
 		 
 	 String closeInsertBrac = ");";
 	 String startInsertBrac = "(";
-	 String insertTabCmd = "INSERT INTO b_stra_onhand (maker,model,fuel_type) VALUES" + startInsertBrac;
+	 String insertTabCmd = "INSERT INTO b_stra_final3 (make,model,fuel) VALUES" + startInsertBrac;
 		 // Include all object data to the database table
 	 
 	 stmt= conn.connect().createStatement();
 	 for (int i = 0; i < 19; i++) {
 		  
-			String insertCmd = (insertTabCmd + "'" + robjs2[i].getMaker() + "',"
-					+ robjs2[i].getModel() + "," + "'" + robjs2[i].getFuel_type() + "'"
-					+ closeInsertBrac);
+			String insertCmd = (insertTabCmd + "'" + robjs2[i].getMake() + "'"+"'"+ robjs2[i].getModel() +"'"+"'" + robjs2[i].getFuel()+ "'"+ closeInsertBrac);
 			
 			stmt.executeUpdate(insertCmd);
 			//System.out.println(insertCmd);
@@ -85,12 +83,14 @@ public class daoModel extends BankRecords{
 	
 	
 	
+
+	
 	// this class is designed to retrieve the recrods from the db and store it in the variable for result set, rs
 	public ResultSet retrieveRecords() {
 		ResultSet rs = null;
 		try {
 		    stmt = conn.connect().createStatement();
-			String sql = "SELECT * from b_stra_tab";
+			String sql = "SELECT * from b_stra_final3";
 			rs = stmt.executeQuery(sql);
 			conn.connect().close();	
 			
@@ -100,6 +100,6 @@ public class daoModel extends BankRecords{
 		}
 
 		return rs;
-		}
-			
+	}
+	
 }

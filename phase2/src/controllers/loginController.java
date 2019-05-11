@@ -59,18 +59,12 @@ public loginController() { 	}
 			// TODO Auto-generated method stub
 			login();
 			
-		}
+			}
 				
-		
-		
-		
-		
-
-	}	 
-
-
 	
-}
+		}
+	
+	}
 
 
 
